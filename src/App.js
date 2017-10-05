@@ -77,7 +77,7 @@ class App extends Component {
       }
       return todo;
     });
-    this.setState({ todos });
+    this.setState({ todos: todos });
   }
 
   removeToDo(item) {
@@ -139,7 +139,7 @@ ToDoCount.propTypes = {
 };
 
 ClearButton.propTypes = {
-  removeCompleted: PropTypes.string.isRequired
+  removeCompleted: PropTypes.func.isRequired
 };
 
 Todo.propTypes = {
@@ -147,5 +147,7 @@ Todo.propTypes = {
     id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     complete: PropTypes.bool.isRequired
-  })
+  }),
+  toggleComplete: PropTypes.func.isRequired,
+  removeToDo: PropTypes.func.isRequired
 };
